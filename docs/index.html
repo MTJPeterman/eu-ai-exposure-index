@@ -7,57 +7,109 @@
     body {
       font-family: Arial, sans-serif;
       margin: 40px;
-      background:#f5f5f5;
+      background: #f5f5f5;
     }
 
     h1 {
       font-size: 48px;
-      margin-bottom:10px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 28px;
     }
 
     p {
-      font-size:18px;
-      color:#444;
+      font-size: 18px;
+      color: #444;
     }
 
     .box {
-      background:white;
-      padding:20px;
-      border-radius:8px;
-      margin-top:30px;
-      box-shadow:0 4px 12px rgba(0,0,0,0.08);
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .chart-box {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
 
-<h1>EU AI Exposure Index</h1>
+  <h1>EU AI Exposure Index</h1>
 
-<p>
-One labour market. 27 different AI shocks.
-</p>
+  <p>
+    One labour market. 27 different AI shocks.
+  </p>
 
-<div class="box">
-<p>
-This project estimates AI exposure across the European workforce using:
-</p>
+  <div class="box">
+    <p>
+      This project estimates AI exposure across the European workforce using:
+    </p>
 
-<ul>
-<li>Eurostat employment data</li>
-<li>Eurostat earnings data</li>
-<li>ESCO occupations and skills</li>
-<li>task-level AI exposure scoring</li>
-</ul>
+    <ul>
+      <li>Eurostat employment data</li>
+      <li>Eurostat earnings data</li>
+      <li>ESCO occupations and skills</li>
+      <li>task-level AI exposure scoring</li>
+    </ul>
 
-<p>
-Repository:
-<a href="https://github.com/MTJPeterman/eu-ai-exposure-index">
-github.com/MTJPeterman/eu-ai-exposure-index
-</a>
-</p>
+    <p>
+      Repository:
+      <a href="https://github.com/MTJPeterman/eu-ai-exposure-index">
+        github.com/MTJPeterman/eu-ai-exposure-index
+      </a>
+    </p>
+  </div>
 
-</div>
+  <div class="chart-box">
+    <h2>Top EU Jobs Most Exposed to AI</h2>
+    <canvas id="chart" width="600" height="400"></canvas>
+  </div>
+
+  <script>
+    fetch("data/jobs.json")
+      .then(r => r.json())
+      .then(data => {
+        const labels = data.map(d => d.job);
+        const values = data.map(d => d.exposure);
+
+        new Chart(document.getElementById("chart"), {
+          type: "bar",
+          data: {
+            labels: labels,
+            datasets: [{
+              label: "AI Exposure Score",
+              data: values
+            }]
+          },
+          options: {
+            indexAxis: "y",
+            responsive: true,
+            plugins: {
+              legend: {
+                display: false
+              }
+            },
+            scales: {
+              x: {
+                beginAtZero: true,
+                max: 10
+              }
+            }
+          }
+        });
+      });
+  </script>
 
 </body>
 </html>
