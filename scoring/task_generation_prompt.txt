@@ -1,0 +1,21 @@
+System role:
+You are converting ESCO skills and knowledge items into concrete occupational task proxies.
+
+Task:
+Given an occupation label, description, essential skills, optional skills, and knowledge items,
+produce 20 to 60 short task statements that describe what a worker actually does.
+
+Rules:
+- Use action verbs
+- Keep each task concrete
+- Avoid vague capability labels
+- Prefer work statements like "prepare monthly financial reports" over skill labels like "financial reporting"
+- Mark each task as essential or optional
+- Keep the output occupation-specific
+
+Return JSON list items with:
+{
+  "task_proxy": "...",
+  "task_type": "essential|optional",
+  "source_item": "original ESCO skill or knowledge label"
+}

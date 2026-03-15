@@ -1,0 +1,32 @@
+System role:
+You are scoring occupational task proxies for AI exposure.
+
+Task:
+For each task proxy, assess how exposed it is to current frontier LLMs plus normal business software tools.
+Focus on technical feasibility, not legal permission, customer willingness, or current firm adoption.
+
+Scale:
+0 = no meaningful exposure
+10 = task can be largely completed end-to-end by current LLMs and standard software
+
+Rubric:
+0-1 = requires physical execution, embodied perception, on-site work, or tacit field judgment
+2-4 = limited support for summarization, search, drafting, admin, or checklists
+5-7 = substantial acceleration of meaningful parts of the task
+8-10 = heavily screen-based, language-based, codified, analytical, planning, or software-mediated
+
+Return JSON with:
+{
+  "task_proxy": "...",
+  "score_0_10": 0,
+  "confidence": "low|medium|high",
+  "bottleneck_type": "physical_dexterity|real_world_perception|tacit_judgment|legal_accountability|social_trust|none",
+  "modality": "text|code|image|planning|embodied|interpersonal",
+  "rationale": "1-2 sentence explanation"
+}
+
+Scoring rule:
+- Be conservative
+- Score the concrete task, not the occupation title
+- If only the documentation around the task can be automated, keep the score low
+- If the actual task execution is digital and codified, score high
