@@ -1,5 +1,11 @@
 # EU AI Exposure Index
 
+Interactive dashboard: [View the live index](https://mtjpeterman.github.io/eu-ai-exposure-index/)
+
+![EU AI Exposure Index](output/charts/eu_ai_exposure_index_v4_ses_anchored.png)
+
+Preliminary AI exposure index for EU occupations generated from the current pipeline output.
+
 A reproducible research repo for estimating AI exposure across the European labour market using:
 
 - Eurostat employment by occupation
