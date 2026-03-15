@@ -1,12 +1,12 @@
 [
-  {"job":"Accountants","exposure":8.7},
-  {"job":"Financial analysts","exposure":8.5},
-  {"job":"Law clerks","exposure":8.4},
-  {"job":"Journalists","exposure":8.1},
-  {"job":"Marketing specialists","exposure":7.9},
-  {"job":"HR specialists","exposure":7.8},
-  {"job":"Software testers","exposure":7.7},
-  {"job":"Management consultants","exposure":7.6},
-  {"job":"Customer support agents","exposure":7.5},
-  {"job":"Data analysts","exposure":7.4}
+  {"job":"Information and communications technology professionals","exposure":8.8},
+  {"job":"General and keyboard clerks","exposure":8.8},
+  {"job":"Business and administration professionals","exposure":8.2},
+  {"job":"Legal, social and cultural professionals","exposure":7.9},
+  {"job":"Customer services clerks","exposure":7.8},
+  {"job":"Numerical and material recording clerks","exposure":7.6},
+  {"job":"Administrative and commercial managers","exposure":7.2},
+  {"job":"Science and engineering professionals","exposure":7.2},
+  {"job":"Business and administration associate professionals","exposure":6.9},
+  {"job":"Other clerical support workers","exposure":6.8}
 ]
